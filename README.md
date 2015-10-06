@@ -253,7 +253,9 @@
 * `lambda x: <body>`: lambda function; don't need return statement
 * Tuples are immutable lists
 * Four numeric types: `int`, `long`, `float`, `complex`
-* **Falsey values**: `None`, `False`, zero of any numeric type, empty sequences & mappings, when `__len__()` returns zero for a user-defined class
-
-
-## Problem-solving Strategies
+* **Falsey values**:
+  * `None`
+  * `False`
+  * Zero of any numeric type
+  * Empty sequences & mappings
+  * When `__len__()` returns zero for a user-defined class
