@@ -1,5 +1,19 @@
 # interview study sheet
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Data Structures](#data-structures)
+- [Algorithms](#algorithms)
+- [Other Concepts](#other-concepts)
+- [Math](#math)
+- [Common Problems](#common-problems)
+- [Just Python Things](#just-python-things)
+- [Problem-solving Strategies](#problem-solving-strategies)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Data Structures
 ### Array
 * An *array* is a collection with specified size
