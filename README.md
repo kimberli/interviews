@@ -218,6 +218,7 @@
 ### Non-Decimal Numbers
 * Binary numbers: preface with `0b`; use `bin(int)` to convert
   * Left and right shift: `<<` and `>>`
+  * Bitwise AND, OR, XOR, NOT: `&`, `|`, `^`, `~`
 
 ### File I/O
 * `f = open('filename', 'w')`: open a file
@@ -228,8 +229,12 @@
 
 ### Magic Methods
 * `__init__(self,[...)`: initializer for a class
-* `__cmp__(self,other)`: returns negative for `<`, 0 for `==`, positive for `>`
-* `__eq__(self,other)`
+* `__cmp__(self,other)`: return negative for `<`, 0 for `==`, positive for `>`
+* `__eq__(self,other)`: define behavior for `==`
+  * Also `ne`, `lt`, `le`, `gt`, `ge`
+* `__str__(self)`: return string representation
+* `__repr__(self)`: return machine-readable representation
+* `__hash__(self)`: return an integer such that `a==b` implies `hash(a)==hash(b)`
 
 ### Useful Modules
 * `collections` (use `collections.deque`)
@@ -244,6 +249,7 @@
 * `unirest`
 
 ### Other
+* Simultaneous assignment: `a,b = b,a` to swap
 * `lambda x: <body>`: lambda function; don't need return statement
 * Tuples are immutable lists
 * Four numeric types: `int`, `long`, `float`, `complex`
