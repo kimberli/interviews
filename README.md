@@ -169,40 +169,85 @@
 * idk
 
 ## Just Python Things
+### Strings
+* `s.center(w,[fillchar])`: returns centered string in string of width `w`
+* `s.count(sub[,start[,end]])`: returns count of non-overlapping occurences of substring
+* `sub in s`: returns `True` if `sub` is in `s`
+* `s.find(sub[,start[,end]])`: returns start index of substring or `-1`
+* `s.join(iter)`: join items in iterable, separated by `s`
+* `s.strip([chars])`: removing leading and trailing characters
+* `s.replace(old,new[,count])`: returns copy of `s` with `old` replaced by `new`
+
+
 ### Lists
-* `range(start,end)` gives the range `[start,end)`
-* List functionals: `[<expr> for <var> in <list> if <condition>]`
-* Lambda functions: `lambda x: <body>`; don't need return statement
-* Slicing: `listname[start:end:slice_size]`
+* `l=[]`: initialize
+* `len(l)`: get size
+* `l.append(val)`: append a value
+* `l.insert(i,val)`: insert a value at position
+* `l.extend(lst)`: append all values in a list
+* `l.pop([i])`: remove an item and return it (defaults to last item)
+* `x in l`: check membership
+* `l.sort(cmp=None,key=None,reverse=False)`: sort in place
+* `sorted(iterable[, cmp[, key[, reverse]]])`: return a new stably sorted list
+* `l.reverse()`: reverse a list in place
+* `range(start,end)`: get a list with items from `start` (inclusive) to `end` (exclusive)
+* `[<expr> for <var> in <list> if <condition>]`: list functional
+* `listname[start:end:slice_size]`: slicing
+
+### Sets
+* `set()` or `{[items]}`: initialize
+* `len(s)`: get cardinality
+* `x in s`: check membership
+* `s | other | ...`: return a union of sets
+* `s & other & ...`: return an intersection of sets
+* `s - other - ...`: return difference of sets
+* `s ^ other`: return set of elements uniquely in sets
 
 ### Dictionaries
-* `.items()` returns a list of `(key,value)` tuples
-* `.values()`
-* `.keys()`
+* `d={}`: initialize
+* `d[key]` or `d.get(key)`: get the value at `key` (the latter returns `None` if not found)
+* `len(d)`: get item count
+* `key in d`: check membership
+* `d.pop(key)`: remove and return a value in the dictionary
+* `del d[key]`: delete an item
+* `d.update(other)`: update/overwrite with keys & values from `other`
+* `d.items()`: return a list of `(key,value)` tuples
+* `d.keys()`: return a list of dicionary keys
+* `d.values()`: return a list of dictionary values
 
 ### Non-Decimal Numbers
 * Binary numbers: preface with `0b`; use `bin(int)` to convert
   * Left and right shift: `<<` and `>>`
 
 ### File I/O
-* opening: ```f = open('filename', 'w')```
-* closing
-* reading
-* writing
-
+* `f = open('filename', 'w')`: open a file
+* `f.close()`: close file
+* `f.readline()`: read a line from the file
+* `for line in f`: iterate through lines in file
+* `f.write()`: write a string to the file
 
 ### Magic Methods
-* __init__
+* `__init__(self,[...)`: initializer for a class
+* `__cmp__(self,other)`: returns negative for `<`, 0 for `==`, positive for `>`
+* `__eq__(self,other)`
 
 ### Useful Modules
-* `collections`
+* `collections` (use `collections.deque`)
+  * `dq.pop()`, `dq.popleft()`, `dq.appendleft(val)`, `dq.extendleft(lst)`, `dq.rotate(n)`
 * `heapd`
 * `BeautifulSoup`
-* 'scipy'
-* 'numpy'
-* 'scikit-learn'
-* 'nltk'
-* 'requests'
-* 'unirest'
+* `scipy`
+* `numpy`
+* `scikit-learn`
+* `nltk`
+* `requests`
+* `unirest`
+
+### Other
+* `lambda x: <body>`: lambda function; don't need return statement
+* Tuples are immutable lists
+* Four numeric types: `int`, `long`, `float`, `complex`
+* **Falsey values**: `None`, `False`, zero of any numeric type, empty sequences & mappings, when `__len__()` returns zero for a user-defined class
+
 
 ## Problem-solving Strategies
