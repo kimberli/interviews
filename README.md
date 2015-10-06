@@ -98,5 +98,11 @@
 * `collections`
 * `heapd`
 * `BeautifulSoup`
+* 'scipy'
+* 'numpy'
+* 'scikit-learn'
+* 'nltk'
+* 'requests'
+* 'unirest'
 
 ## Problem-solving Strategies
