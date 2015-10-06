@@ -114,17 +114,42 @@ A quick study sheet I use as a refresher :smile:
 * Shallow/deep copying
 * Immutable/mutable
 * Greedy algorithms
+* Defensive copying
 
 ### Asymptotic Notation
+* Look [here](https://en.wikipedia.org/wiki/Big_O_notation#Formal_definition) for formal definitions
+* O - asymptotic upper bound
+  * o - asymptotic upper bound, excluding same rate
+* Ω - asymptotic lower bound
+  * ω - asymptotic lower bound, excluding same rate
+* Θ - same asymptotic growth
+* Exponential > polynomial > logarithmic > constant
+* Can ask for worst, best, or average case
+
 ### Object-oriented Programming
+Inspiration from [here](https://quizlet.com/22436874/oop-vocabulary-object-oriented-programming-flash-cards/)
+* *Abstract data type*: access data only through a public interface; implementation can be changed without altering usage
+* *Class*: basic concept in OOP, bundles data type information with actions
+* *Object*: runtime value which belongs to a class
+* *Encapsulation*: information hiding to ensure data integrity
+* *Hierarchy*: classes can have super- and subclasses
+* *Inheritance*: a subclass inherits data and methods from its parent classes
+* *Overriding*: a subclass inherits parent methods but may override them
+* *Polymorphism*: different classes in a program can respond to the same message in different ways; useful when an object's class can't be determined at compile time
+
 ### Concurrency
+* TODO
 
 ### Design Patterns
-* MVC
-* Subscriber
-* idk
+* *Model-view-controller*: model stores data, controller updates model, view generates user interface
+* *Factory method*: use a factory object to create other objects rather than using a constructor
+* *Singleton*: restrict instantiation of a class to a single object
+* *Observer*: subjects notify observers of any state changes (usually by calling their methods); used in MVC
+* Lots more
 
 ### Dynamic Programming
+* TODO
+
 ### The Internet
 #### HTTP Methods
 * GET: used to retrieve data, no other effect on the data
@@ -144,27 +169,38 @@ A quick study sheet I use as a refresher :smile:
 * 504 Gateway Timeout: server did not receive a timely response from upstream server
 
 #### Networking
-### Bit Manipulation
+* [OSI Model](https://en.wikipedia.org/wiki/OSI_model)
+
 ### Recursion
+* [*Master theorem*]([OSI Model](https://en.wikipedia.org/wiki/Master_theorem): is most work performed in the root node, in the leaves, or evenly distributed in the rows of the recursion tree?
+
 ### Linux
+* TODO
+
 ### Git
-* `init`: creates/initializes .git folder in current directory
+* `init`: creates/initializes `.git` folder in current directory
 * `clone`: clone repo into new directory
 * `pull`: fetch from another repo and integrate
     * `git pull` is same as `git fetch` then `git merge FETCH_HEAD`
-* `add`:
-* `commit`:
-* `rebase`:
-* `branch`:
-* `checkout`:
-* `status`:
-* `diff`:
-* `log`:
-* `remote`:
-* `reset`:
+* `add`: add files to index of contents for next commit
+* `rm`: remove files from working tree and index
+* `commit`: record changes to the repo, along with a commit message
+* `rebase`: transplant changes on one branch to another
+* `branch`: list, create, or delete branches
+* `checkout`: switch branches
+* `status`: show the working tree's status
+* `diff`: show changes between commits or the working tree
+* `log`: show commit logs in a repo
+* `remote`: manage tracked remote repos
+* `reset`: reset current HEAD to a different state
 
-## Math
 ### Combinatorics
+* `n(n-1)/2`: number of handshakes in a group
+* `n-1`: number of rounds in a knockout tournament
+* `2^k`: number of binary strings of length `k`
+* `n!/(n-r)!`: permutations of `n` items taken `k` at a time
+* `n!/(r!(n-r)!)`: combinations of `n` items taken `k` at a time
+
 ## Common Problems
 * Knapsack
 * idk
@@ -178,7 +214,6 @@ A quick study sheet I use as a refresher :smile:
 * `s.join(iter)`: join items in iterable, separated by `s`
 * `s.strip([chars])`: removing leading and trailing characters
 * `s.replace(old,new[,count])`: returns copy of `s` with `old` replaced by `new`
-
 
 ### Lists
 * `l=[]`: initialize
@@ -196,7 +231,7 @@ A quick study sheet I use as a refresher :smile:
 * `listname[start:end:slice_size]`: slicing
 
 ### Sets
-* `set()` or `{[items]}`: initialize
+* `set()` or `{l}`: initialize
 * `len(s)`: get cardinality
 * `x in s`: check membership
 * `s | other | ...`: return a union of sets
@@ -220,6 +255,7 @@ A quick study sheet I use as a refresher :smile:
 * Binary numbers: preface with `0b`; use `bin(int)` to convert
   * Left and right shift: `<<` and `>>`
   * Bitwise AND, OR, XOR, NOT: `&`, `|`, `^`, `~`
+  * [Bitmasks](https://en.wikipedia.org/wiki/Mask_(computing))
 
 ### File I/O
 * `f = open('filename', 'w')`: open a file
@@ -238,9 +274,15 @@ A quick study sheet I use as a refresher :smile:
 * `__hash__(self)`: return an integer such that `a==b` implies `hash(a)==hash(b)`
 
 ### Useful Modules
+* `copy`
+  * `copy.copy(x)`: return shallow copy of `x`
+  * `copy.deepcopy(x)`: return deep copy of `x`
 * `collections` (use `collections.deque`)
   * `dq.pop()`, `dq.popleft()`, `dq.appendleft(val)`, `dq.extendleft(lst)`, `dq.rotate(n)`
-* `heapd`
+* `heapq`
+  * `heapq.push(heap,item)`: add an item
+  * `heapq.pop(heap)`: pop an item
+  * `heapq.heapify(l)`: make a list into a heap in linear time
 * `BeautifulSoup`
 * `scipy`
 * `numpy`
@@ -259,4 +301,5 @@ A quick study sheet I use as a refresher :smile:
   * `False`
   * Zero of any numeric type
   * Empty sequences & mappings
+  * When `__nonzero__()` returns `False`
   * When `__len__()` returns zero for a user-defined class
