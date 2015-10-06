@@ -112,12 +112,42 @@
 ### Dynamic Programming
 ### The Internet
 #### HTTP Methods
-#### Networking
+* GET: used to retrieve data, no other effect on the data
+* POST: used to send data to the server (e.g. form)
+* PUT: replaces current representation of resource (idempotent)
+* DELETE: remove current representation resource
 
+#### HTTP Status Codes
+* 204 OK: success
+* 400 Bad Request: syntax could not be understood
+* 401 Unauthorized: request not fulfilled due to lack of authorization
+* 403 Forbidden: request understood but not fulfilled, authorization will not help
+* 404 Not Found: URI could not be matched
+* 408 Request Timeout: server did not receive a timely response from client
+* 500 Internal Server Error: server exception
+* 503 Service Unavailable: server unable to handle the request (temporary)
+* 504 Gateway Timeout: server did not receive a timely response from upstream server
+
+#### Networking
 ### Bit Manipulation
 ### Recursion
 ### Linux
 ### Git
+* `init`: creates/initializes .git folder in current directory
+* `clone`: clone repo into new directory
+* `pull`: fetch from another repo and integrate
+    * `git pull` is same as `git fetch` then `git merge FETCH_HEAD`
+* `add`:
+* `commit`:
+* `rebase`:
+* `branch`:
+* `checkout`:
+* `status`:
+* `diff`:
+* `log`:
+* `remote`:
+* `reset`:
+
 ## Math
 ### Combinatorics
 ## Common Problems
@@ -141,8 +171,14 @@
   * Left and right shift: `<<` and `>>`
 
 ### File I/O
+* opening: ```f = open('filename', 'w')```
+* closing
+* reading
+* writing
+
 
 ### Magic Methods
+* __init__
 
 ### Useful Modules
 * `collections`
