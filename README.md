@@ -132,7 +132,7 @@
 * DELETE: remove current representation resource
 
 #### HTTP Status Codes
-* 204 OK: success
+* 200 OK: success
 * 400 Bad Request: syntax could not be understood
 * 401 Unauthorized: request not fulfilled due to lack of authorization
 * 403 Forbidden: request understood but not fulfilled, authorization will not help
