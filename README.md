@@ -372,7 +372,7 @@ Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/progr
 * `sorted(iterable[, cmp[, key[, reverse]]])`: return a new stably sorted list
 * `l.reverse()`: reverse a list in place
 * `range(start,end)`: get a list with items from `start` (inclusive) to `end` (exclusive)
-* `[<expr> for <var> in <list> if <condition>]`: list functional
+* `[<expr> for <var> in <list> if <condition>]`: list comprehension
 * `listname[start:end:slice_size]`: slicing
 
 ### Sets
