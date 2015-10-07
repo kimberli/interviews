@@ -90,6 +90,7 @@ A quick study sheet I use as a refresher :smile:
 * **Hash function**: a function mapping an object to an integer such that if `a==b`, `H(a)==H(b)`
 * A *hash table* is an array whose indices correspond to results from a hash function (implemented as a dictionary in Python)
 * Provides `O(1)` lookup
+* Collision resolution & table doubling
 
 ### Heap
 * Special tree where nodes have higher (in the case of a min-heap) values than their parents
@@ -97,6 +98,7 @@ A quick study sheet I use as a refresher :smile:
   * Heapify in `O(n)`
   * Find min in `O(1)`
   * Extract min, increase key, insert, delete in `O(log n)`
+  * Can implement as a list where a node at index `i` has children at `2i+1` and `2i+2`
 
 ### Graph
 * Collection of nodes and edges
@@ -104,7 +106,49 @@ A quick study sheet I use as a refresher :smile:
   * **Minimum spanning tree**: a spanning tree with minimum total edge weights
 
 ## Algorithms
-### Search
+### Binary Search
+* Given a sorted list, start at the midpoint and divide and conquer
+* `O(log n)`
+
+### Sorting
+#### Insertion
+* Maintain a sorted sublist and insert new elements in it appropriately
+* Sorts in-place; stable
+* Best-case `O(n)`, average `O(n^2)`, worst `O(n^2)`
+
+#### Bubble
+* On each pass through the array, compare adjacent pairs of elements and swap if necessary
+* Sorts in-place; stable
+* Best-case `O(n)`, average `O(n^2)`, worst `O(n^2)`
+
+#### Selection
+* Exchange current element with smallest element to the right of the current element
+* Sorts in-place; unstable
+* Best-case `O(n^2)`, average `O(n^2)`, worst `O(n^2)`
+
+#### Merge
+* Recursively divide until sublists are size 1, then recursively merge the sublists
+* Requires `O(n)` space; stable
+* Best-case `O(n log n)`, average `O(n log n)`, worst `O(n log n)`
+
+#### Quick
+* Set a pivot in the array; move elements smaller than pivot to its left and elements larger to the right
+  * Recursively sort left and right sublists
+* Requires `O(log n)` space; stable
+* Best-case `O(n log n)`, average `O(n log n)`, worst `O(n^2)`
+
+#### Counting/Bucket
+* For lists whose elements' values are in a set range
+* Not a comparison sort so best & average is `O(n+k)` and worst is `O(n^2)`
+* Iterate through list and place items in buckets; can be stable
+
+#### Radix
+* Apply a stable counting sort to every place value in a number
+* Sort places from least to most significant
+* Requires `O(n+k)` space; `O(d(n+k))` time
+* Also not a comparison sort
+
+### Graph Search
 * Given a graph, find a path from a start node to an end node
 * General strategy: expand a node, check to see if it's the goal node, add its children to the *search agenda*
 * In the case of weighted graphs, a **heuristic** may help find the shortest path faster
@@ -134,15 +178,6 @@ A quick study sheet I use as a refresher :smile:
 #### A*
 * Branch and bound with heuristic and extended set
 * Heuristic must be consistent
-
-### Sorting
-#### Insertion
-#### Bubble
-#### Selection
-#### Merge
-#### Quick
-#### Counting
-#### Radix
 
 ## Other Concepts
 ### General
