@@ -79,23 +79,61 @@ A quick study sheet I use as a refresher :smile:
   * If deleting a node with two children, swap with minimum value in right subtree or maximum value in left subtree, then delete the node (which should now be a leaf)
 
 #### AVL Tree
+* Self-balancing binary search tree
+* Lookup, insertion, and deletion all take `O(log n)`
+
 #### Trie
+* Also called a *prefix tree*
+* Stores subsequences of values; useful for autocomplete
 
 ### Hash Table
-* Dictionary, set
+* **Hash function**: a function mapping an object to an integer such that if `a==b`, `H(a)==H(b)`
+* A *hash table* is an array whose indices correspond to results from a hash function (implemented as a dictionary in Python)
+* Provides `O(1)` lookup
 
 ### Heap
+* Special tree where nodes have higher (in the case of a min-heap) values than their parents
+* Binary heap:
+  * Heapify in `O(n)`
+  * Find min in `O(1)`
+  * Extract min, increase key, insert, delete in `O(log n)`
+
 ### Graph
-* MST
+* Collection of nodes and edges
+* **Spanning tree**: a tree that includes all nodes in the graph
+  * **Minimum spanning tree**: a spanning tree with minimum total edge weights
 
 ## Algorithms
 ### Search
+* Given a graph, find a path from a start node to an end node
+* General strategy: expand a node, check to see if it's the goal node, add its children to the *search agenda*
+* In the case of weighted graphs, a **heuristic** may help find the shortest path faster
+  * **Admissible**: heuristic's value for a node is less than actual distance from node to goal (`H(n,G) ≤ dist(n,G)` for all nodes `n`)
+  * **Consistent**: heuristic follows triangle inequality (`|H(A)-H(B)| ≤ dist(A,B)` for all nodes `A,B`)
+
 #### Depth-first
+* Implement with a stack (add new paths to the front of the agenda)
+
 #### Breadth-first
+* Implement with a queue (add new paths to the end of the agenda)
+* In an unweighted graph, guaranteed to find shortest path
+
 #### Hill-climbing
+* Add new paths to the front of the agenda
+* Sort *new* paths by terminal node's heuristic
+
 #### Best-first
+* Add new paths to the front of the agenda
+* Sort *all paths* in agenda by terminal node's heuristic
+
 #### Branch and bound
+* Add new paths to the front of the agenda
+* Sort agenda by path length so far
+* Can also add a heuristic or extended set (or both)
+
 #### A*
+* Branch and bound with heuristic and extended set
+* Heuristic must be consistent
 
 ### Sorting
 #### Insertion
@@ -172,7 +210,7 @@ Inspiration from [here](https://quizlet.com/22436874/oop-vocabulary-object-orien
 * [OSI Model](https://en.wikipedia.org/wiki/OSI_model)
 
 ### Recursion
-* [*Master theorem*]([OSI Model](https://en.wikipedia.org/wiki/Master_theorem): is most work performed in the root node, in the leaves, or evenly distributed in the rows of the recursion tree?
+* [*Master theorem*](https://en.wikipedia.org/wiki/Master_theorem): is most work performed in the root node, in the leaves, or evenly distributed in the rows of the recursion tree?
 
 ### Linux
 * TODO
@@ -202,6 +240,8 @@ Inspiration from [here](https://quizlet.com/22436874/oop-vocabulary-object-orien
 * `n!/(r!(n-r)!)`: combinations of `n` items taken `k` at a time
 
 ## Common Problems
+* Anagrams
+* Document distance
 * Knapsack
 * idk
 
