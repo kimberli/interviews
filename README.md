@@ -436,6 +436,8 @@ Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/progr
 * `nltk`
 * `requests`
 * `unirest`
+* `pdb`
+  * `pdb.set_trace()` sets a breakpoint at the current line and gives the user a CLI with which to inspect various objects and their values at runtime. Also allows you to continue code execution line by line. Use `help` to see a list of the commands usable in the CLI.
 
 ### Other
 * Infinity: `float("inf")`
