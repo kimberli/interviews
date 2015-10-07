@@ -379,6 +379,7 @@ Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/progr
 * `set()` or `{l}`: initialize
 * `len(s)`: get cardinality
 * `x in s`: check membership
+* `s.update(other)`: add values of `other` to `s`
 * `s | other | ...`: return a union of sets
 * `s & other & ...`: return an intersection of sets
 * `s - other - ...`: return difference of sets
