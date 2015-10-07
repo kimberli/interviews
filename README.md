@@ -179,6 +179,24 @@ A quick study sheet I use as a refresher :smile:
 * Branch and bound with heuristic and extended set
 * Heuristic must be consistent
 
+#### Dijkstra's
+* Find shortest path between two nodes (branch and bound with extended set and without heuristic)
+* Can't handle negative edge weights
+* Using a Fibonacci heap, runtime is `O(|E|+|V|log|V|)`
+
+#### Prim's
+* Generate a minimum spanning tree of a graph
+* Using a heap, runtime is `O(|E|+|V|log|V|)`
+
+#### Bellman-Ford
+* Compute shortest paths from a single source to all other nodes in the graph
+* Can handle negative edge weights & detect negative-weight cycles
+* Worst-case runtime is `O(|V||E|)`
+
+#### Floyd-Warshall
+* Dynamic programming all-pairs shortest paths algorithm
+* `dp(i,j,k+1)=min(dp(i,j,k),dp(i,k+1,k)+dp(k+1,j,k))`
+
 ## Other Concepts
 ### General
 * Static/dynamic checking
@@ -188,6 +206,7 @@ A quick study sheet I use as a refresher :smile:
 * Immutable/mutable
 * Greedy algorithms
 * Defensive copying
+* Pseudo-polynomial runtime
 
 ### Asymptotic Notation
 * Look [here](https://en.wikipedia.org/wiki/Big_O_notation#Formal_definition) for formal definitions
@@ -221,7 +240,11 @@ Inspiration from [here](https://quizlet.com/22436874/oop-vocabulary-object-orien
 * Lots more
 
 ### Dynamic Programming
-* TODO
+* A general method for solving a problem with optimal substructure by breaking it down into overlapping subproblems
+* **Top-down**: memoize (store) solutions to subproblems and solve problem recursively
+* **Bottom-up**: build up subproblems from base case up and avoid recursive overhead
+  * Order subproblems by topologically sorting DAG of dependencies
+* Knapsack problem, longest common subsequence, coin change, edit distance, minimum number of jumps, longest palindrome substring, balanced partition
 
 ### The Internet
 #### HTTP Methods
@@ -275,10 +298,34 @@ Inspiration from [here](https://quizlet.com/22436874/oop-vocabulary-object-orien
 * `n!/(r!(n-r)!)`: combinations of `n` items taken `k` at a time
 
 ## Common Problems
-* Anagrams
-* Document distance
-* Knapsack
-* idk
+* **Fibonacci sequence**: print the `n`th Fibonacci number
+  * Optimally, do this recursively and cache the subproblem solutions
+* **Array pair sums**: given an array, output pairs which sum to a number `k`
+  * Can do in `O(n)` with a set data structure. For each element in the array, check to see if `k-a[i]` is in the set, then add the element to a set.
+* **Matrix region sum**: given multiple rectangular regions in a matrix, compute the sum of numbers in that region
+  * Memoize sums of regions with the constraint that corners are at `m[0][0]`
+* **Anagram pair**: determine if two words are anagrams
+  * Comparison sort: sort the words in alphabetical order and check for equality. `O(n log n)`, where `n` is word length.
+  * Count letters: use a hash table to track counts of letters in both words. `O(n)` runtime.
+* **Anagram dictionary**: determine which words in a list are anagrams of a given word
+  * Check for the membership of every permutation of the input word in the dictionary
+* **Anagram list**: determine which sets of words in a dictionary are anagrams
+  * Abstractly, hash each word and group by word. A hash can be a 26-digit string, or you can sort each word.
+* **Binary search tree verification**: verify whether a tree satisfies the binary search tree property
+  * For each node, track its possible minimum and maximum values
+  * Performing an inorder traversal should produce a sorted list
+* **Largest continuous sum**: in an array of integers, determine the subsequence with the largest sum
+  * Track maximum sum encountered so far and check whether current sum is greater. Reset current sum when it becomes negative. Time is `O(n)` and space is `O(1)`.
+* **-1/0/1 array**: given an array where values are -1, 0, or 1, sort the array
+  * Bucket sort (but this takes `O(n)` space)
+  * Iterate through the list and track pointers for min and max index. If a value is -1, swap it with the element at the min index and increment min index. If a value is 1, swap it with the element at max index and decrement max index. Time is `O(n)` and space is `O(1)`.
+* **Find missing number**: given an array where every number except one appears an even number of times, find the number that appears an odd number of times
+  * Optimally, bitwise XOR by numbers in the list (XORing an even number of times resets the number to its original value). Time is `O(n)` and space is `O(1)`
+* **Knapsack**: given a set of items each with weights and values, maximize value while keeping total weight under a limit
+  * Dynamic programming: say weight limit is `W`. Create an array `m[w]` where each element is the maximum value of items with a weight limit `w≤W`. Optimize by dividing item weights and weight limit by their greatest common divisor. Runtime `O(nW)`.
+* **Balanced partition**: given a set of numbers, partition them so that the sums of the partitions are as close as possible
+  * Greedy method: iterate through sorted list and add items to the smaller-sum partition
+  * Dynamic programming: determine if a subset of the input sums to `n/2` (where `n` is the sum of the input numbers)
 
 ## Just Python Things
 ### Strings
