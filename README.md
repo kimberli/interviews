@@ -298,12 +298,32 @@ Inspiration from [here](https://quizlet.com/22436874/oop-vocabulary-object-orien
 * `n!/(r!(n-r)!)`: combinations of `n` items taken `k` at a time
 
 ## Common Problems
+Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/programming-interview-questions/).
 * **Fibonacci sequence**: print the `n`th Fibonacci number
   * Optimally, do this recursively and cache the subproblem solutions
 * **Array pair sums**: given an array, output pairs which sum to a number `k`
   * Can do in `O(n)` with a set data structure. For each element in the array, check to see if `k-a[i]` is in the set, then add the element to a set.
+* **Reverse a linked list**: reverse a singly linked list
+  * Track previous and current nodes; iterate through list and swap the direction of pointers. Time is `O(n)` and space is `O(1)`.
 * **Matrix region sum**: given multiple rectangular regions in a matrix, compute the sum of numbers in that region
   * Memoize sums of regions with the constraint that corners are at `m[0][0]`
+* **Word permutation**: find all permutations of a word
+  ```
+  def permute(word):
+    if len(word) == 1:
+        return {word}
+    else:
+        result = set()
+        permutations = permute(word[:-1])
+        letter = word[-1]
+        for p in permutations:
+            result.update([p[0:i]+letter+p[i:] for i in range(0,len(word)+1)])
+        return result
+    ```
+* **Median of number stream**: given a continuous stream of numbers, find the median of numbers so far at any time
+  * Optimally, keep a max-heap of the smaller half of the numbers and a min-heap of the larger half of the numbers
+* **Infinite array search**: given a sorted, infinite-length array, find a given value
+  * Modify binary search to start at the array's first element and exponentially increase the index you search at. Time is `O(log n)`
 * **Anagram pair**: determine if two words are anagrams
   * Comparison sort: sort the words in alphabetical order and check for equality. `O(n log n)`, where `n` is word length.
   * Count letters: use a hash table to track counts of letters in both words. `O(n)` runtime.
@@ -319,6 +339,9 @@ Inspiration from [here](https://quizlet.com/22436874/oop-vocabulary-object-orien
 * **-1/0/1 array**: given an array where values are -1, 0, or 1, sort the array
   * Bucket sort (but this takes `O(n)` space)
   * Iterate through the list and track pointers for min and max index. If a value is -1, swap it with the element at the min index and increment min index. If a value is 1, swap it with the element at max index and decrement max index. Time is `O(n)` and space is `O(1)`.
+* **k-th largest element**: find the `k`th largest element in an unsorted array
+  * Modify quicksort to recursively sort on pivots in left/right subarrays (average `O(n)`, worst-case `O(n^2)`)
+  * Median of medians algorithm
 * **Find missing number**: given an array where every number except one appears an even number of times, find the number that appears an odd number of times
   * Optimally, bitwise XOR by numbers in the list (XORing an even number of times resets the number to its original value). Time is `O(n)` and space is `O(1)`
 * **Knapsack**: given a set of items each with weights and values, maximize value while keeping total weight under a limit
