@@ -307,19 +307,21 @@ Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/progr
   * Track previous and current nodes; iterate through list and swap the direction of pointers. Time is `O(n)` and space is `O(1)`.
 * **Matrix region sum**: given multiple rectangular regions in a matrix, compute the sum of numbers in that region
   * Memoize sums of regions with the constraint that corners are at `m[0][0]`
-* **Word permutation**: find all permutations of a word
-  ```
-  def permute(word):
-    if len(word) == 1:
-        return {word}
-    else:
-        result = set()
-        permutations = permute(word[:-1])
-        letter = word[-1]
-        for p in permutations:
-            result.update([p[0:i]+letter+p[i:] for i in range(0,len(word)+1)])
-        return result
-    ```
+* **Word permutation**: find all permutations of a wordi
+
+      ```python
+      def permute(word):
+          if len(word) == 1:
+              return {word}
+          else:
+              result = set()
+              permutations = permute(word[:-1])
+              letter = word[-1]
+              for p in permutations:
+                  result.update([p[0:i]+letter+p[i:] for i in range(0,len(word)+1)])
+              return result
+      ```
+
 * **Median of number stream**: given a continuous stream of numbers, find the median of numbers so far at any time
   * Optimally, keep a max-heap of the smaller half of the numbers and a min-heap of the larger half of the numbers
 * **Infinite array search**: given a sorted, infinite-length array, find a given value
@@ -372,7 +374,7 @@ Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/progr
 * `sorted(iterable[, cmp[, key[, reverse]]])`: return a new stably sorted list
 * `l.reverse()`: reverse a list in place
 * `range(start,end)`: get a list with items from `start` (inclusive) to `end` (exclusive)
-* `[<expr> for <var> in <list> if <condition>]`: list functional
+* `[<expr> for <var> in <list> if <condition>]`: list comprehension
 * `listname[start:end:slice_size]`: slicing
 
 ### Sets
@@ -411,7 +413,7 @@ Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/progr
 * `f.write()`: write a string to the file
 
 ### Magic Methods
-* `__init__(self,[...)`: initializer for a class
+* `__init__(self,[...])`: initializer for a class
 * `__cmp__(self,other)`: return negative for `<`, 0 for `==`, positive for `>`
 * `__eq__(self,other)`: define behavior for `==`
   * Also `ne`, `lt`, `le`, `gt`, `ge`
@@ -436,6 +438,15 @@ Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/progr
 * `nltk`
 * `requests`
 * `unirest`
+* `pdb`
+  * `pdb.set_trace()` sets a breakpoint at the current line and gives the user a CLI with which to inspect various objects and their values at runtime. Also allows you to continue code execution line by line. Use `help` to see a list of the commands usable in the CLI.
+* `pprint`: Pretty Print
+  * `pprint.pprint(iter)`: Print out a version of `iter` with JSON-like formatting. Useful for inspecting large, deeply nested objects.
+
+### List Functionals
+* `zip(seq1 [,seq2 [...]]) -> [(seq1[0], seq2[0] ...), (...)]` return list of tuples where each tuple contains the i-th element from each sequence. Truncated to length of shortest sequence
+* `map(f, seq) -> [f(seq[0]), f(seq[1]), ...]` return list of the results of `f` applied to each element of `seq`
+* `filter(f, seq)`: return list of items in `seq` for which `f(seq[i]) == True`
 
 ### Other
 * Infinity: `float("inf")`
