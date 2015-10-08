@@ -307,7 +307,7 @@ Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/progr
   * Track previous and current nodes; iterate through list and swap the direction of pointers. Time is `O(n)` and space is `O(1)`.
 * **Matrix region sum**: given multiple rectangular regions in a matrix, compute the sum of numbers in that region
   * Memoize sums of regions with the constraint that corners are at `m[0][0]`
-* **Word permutation**: find all permutations of a wordi
+* **Word permutation**: find all permutations of a word
 
       ```python
       def permute(word):
@@ -444,9 +444,10 @@ Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/progr
   * `pprint.pprint(iter)`: Print out a version of `iter` with JSON-like formatting. Useful for inspecting large, deeply nested objects.
 
 ### List Functionals
-* `zip(seq1 [,seq2 [...]]) -> [(seq1[0], seq2[0] ...), (...)]` return list of tuples where each tuple contains the i-th element from each sequence. Truncated to length of shortest sequence
-* `map(f, seq) -> [f(seq[0]), f(seq[1]), ...]` return list of the results of `f` applied to each element of `seq`
+* `zip(seq1 [,seq2 [...]])`: return list of tuples where each tuple contains the i-th element from each sequence. Truncated to length of shortest sequence (`[(seq1[0], seq2[0] ...), (...)]`)
+* `map(f, seq)`: return list of the results of `f` applied to each element of `seq` (`[f(seq[0]), f(seq[1]), ...]`)
 * `filter(f, seq)`: return list of items in `seq` for which `f(seq[i]) == True`
+* `reduce(f, seq)`: apply `f` to pairs of elements in `seq` until iterable is a single value
 
 ### Other
 * Infinity: `float("inf")`
