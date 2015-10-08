@@ -307,7 +307,8 @@ Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/progr
   * Track previous and current nodes; iterate through list and swap the direction of pointers. Time is `O(n)` and space is `O(1)`.
 * **Matrix region sum**: given multiple rectangular regions in a matrix, compute the sum of numbers in that region
   * Memoize sums of regions with the constraint that corners are at `m[0][0]`
-* **Word permutation**: find all permutations of a word
+* **Word permutation**: find all permutations of a wordi
+
       ```python
       def permute(word):
           if len(word) == 1:
@@ -320,6 +321,7 @@ Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/progr
                   result.update([p[0:i]+letter+p[i:] for i in range(0,len(word)+1)])
               return result
       ```
+
 * **Median of number stream**: given a continuous stream of numbers, find the median of numbers so far at any time
   * Optimally, keep a max-heap of the smaller half of the numbers and a min-heap of the larger half of the numbers
 * **Infinite array search**: given a sorted, infinite-length array, find a given value
