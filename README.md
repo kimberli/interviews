@@ -411,7 +411,7 @@ Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/progr
 * `f.write()`: write a string to the file
 
 ### Magic Methods
-* `__init__(self,[...)`: initializer for a class
+* `__init__(self,[...])`: initializer for a class
 * `__cmp__(self,other)`: return negative for `<`, 0 for `==`, positive for `>`
 * `__eq__(self,other)`: define behavior for `==`
   * Also `ne`, `lt`, `le`, `gt`, `ge`
