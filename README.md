@@ -308,18 +308,18 @@ Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/progr
 * **Matrix region sum**: given multiple rectangular regions in a matrix, compute the sum of numbers in that region
   * Memoize sums of regions with the constraint that corners are at `m[0][0]`
 * **Word permutation**: find all permutations of a word
-  ```python
-  def permute(word):
-      if len(word) == 1:
-          return {word}
-      else:
-          result = set()
-          permutations = permute(word[:-1])
-          letter = word[-1]
-          for p in permutations:
-              result.update([p[0:i]+letter+p[i:] for i in range(0,len(word)+1)])
-          return result
-    ```
+      ```python
+      def permute(word):
+          if len(word) == 1:
+              return {word}
+          else:
+              result = set()
+              permutations = permute(word[:-1])
+              letter = word[-1]
+              for p in permutations:
+                  result.update([p[0:i]+letter+p[i:] for i in range(0,len(word)+1)])
+              return result
+      ```
 * **Median of number stream**: given a continuous stream of numbers, find the median of numbers so far at any time
   * Optimally, keep a max-heap of the smaller half of the numbers and a min-heap of the larger half of the numbers
 * **Infinite array search**: given a sorted, infinite-length array, find a given value
