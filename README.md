@@ -441,6 +441,11 @@ Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/progr
 * `pprint`: Pretty Print
   * `pprint.pprint(iter)`: Print out a version of `iter` with JSON-like formatting. Useful for inspecting large, deeply nested objects.
 
+### List Functionals
+* `zip(seq1 [,seq2 [...]]) -> [(seq1[0], seq2[0] ...), (...)]` return list of tuples where each tuple contains the i-th element from each sequence. Truncated to length of shortest sequence
+* `map(f, seq) -> [f(seq[0]), f(seq[1]), ...]` return list of the results of `f` applied to each element of `seq`
+* `filter(f, seq)`: return list of items in `seq` for which `f(seq[i]) == True`
+
 ### Other
 * Infinity: `float("inf")`
 * Simultaneous assignment: `a,b = b,a` to swap
