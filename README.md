@@ -454,6 +454,7 @@ Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/progr
 * Simultaneous assignment: `a,b = b,a` to swap
 * `lambda x: <body>`: lambda function; don't need return statement
 * Tuples are immutable lists
+* `zip()`
 * Four numeric types: `int`, `long`, `float`, `complex`
 * **Falsey values**:
   * `None`
