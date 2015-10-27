@@ -414,6 +414,14 @@ Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/progr
 * `for line in f`: iterate through lines in file
 * `f.write()`: write a string to the file
 
+### Bitwise Operators
+* `x << y`: left shift by `y` bits
+* `x >> y`: right shift by `y` bits
+* `x & y`: bitwise AND
+* `x | y`: bitwise OR
+* `x ^ y`: bitwise XOR
+* `~x`: complement of `x`
+
 ### Magic Methods
 * `__init__(self,[...])`: initializer for a class
 * `__cmp__(self,other)`: return negative for `<`, 0 for `==`, positive for `>`
