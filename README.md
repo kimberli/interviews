@@ -361,6 +361,8 @@ Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/progr
 * `s.join(iter)`: join items in iterable, separated by `s`
 * `s.strip([chars])`: removing leading and trailing characters
 * `s.replace(old,new[,count])`: returns copy of `s` with `old` replaced by `new`
+* `s.isalpha()`: returns `True` if all characters in `s` are alphabetic
+* `s.isdigit()`: returns `True` if all characters in `s` are digits
 
 ### Lists
 * `l=[]`: initialize
