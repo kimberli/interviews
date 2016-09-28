@@ -89,8 +89,14 @@ A quick study sheet I use as a refresher :smile:
 ### Hash Table
 * **Hash function**: a function mapping an object to an integer such that if `a==b`, `H(a)==H(b)`
 * A *hash table* is an array whose indices correspond to results from a hash function (implemented as a dictionary in Python)
-* Provides `O(1)` lookup
-* Collision resolution & table doubling
+* Provides `O(1)` lookup, assuming load factor is small enough
+* Load factor - `n/k`, where `n` is number of entries and `k` is number of buckets
+* Collision resolution
+  * Chaining (e.g. with linked lists)
+  * Open addressing (e.g. with linear probing, quadratic probing, or double hashing)
+* Table doubling - choose a new hash function to map to the new size and insert elements from old table into new table
+* Simple uniform hashing assumption (SUHA) - a hash function maps to any slot with equal probability
+* Universal hashing, perfect hashing
 
 ### Heap
 * Special tree where nodes have higher (in the case of a min-heap) values than their parents
@@ -102,6 +108,8 @@ A quick study sheet I use as a refresher :smile:
 
 ### Graph
 * Collection of nodes and edges
+* Cycle - path that loops onto itself
+* Topological sort - in DAG, linear ordering of vertices such that directional constraints are preserved (generate using DFS, prepend to output list)
 * **Spanning tree**: a tree that includes all nodes in the graph
   * **Minimum spanning tree**: a spanning tree with minimum total edge weights
 
