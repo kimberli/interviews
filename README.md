@@ -481,3 +481,13 @@ Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/progr
   * Empty sequences & mappings
   * When `__nonzero__()` returns `False`
   * When `__len__()` returns zero for a user-defined class
+
+## Problem-solving Strategies
+General categories of problems
+* Straight-forward instruction following
+* String manipulation
+* Tree traversal
+* Graph search
+* Dynamic programming
+
+See https://www.topcoder.com/community/data-science/data-science-tutorials/how-to-find-a-solution/
