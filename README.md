@@ -11,6 +11,7 @@ A quick study sheet I use as a refresher :smile:
 - [Math](#math)
 - [Common Problems](#common-problems)
 - [Just Python Things](#just-python-things)
+- [Java Cheatsheet](#java-cheatsheet)
 - [Problem-solving Strategies](#problem-solving-strategies)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -482,10 +483,12 @@ Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/progr
 ### Other
 * Infinity: `float("inf")`
 * Simultaneous assignment: `a,b = b,a` to swap
-* `lambda x: <body>`: lambda function; don't need return statement
-* Tuples are immutable lists
-* `zip()`
+* `lambda x: <body>`: lambda function; don't need return statement (last value is return value)
+* Tuples are immutable lists; strings are also immutable
+* `zip()`: combine multiple lists into single list of tuples
 * Four numeric types: `int`, `long`, `float`, `complex`
+* **Boolean operations**: `and`, `or`, `not`
+* `is` vs `==`: former for object identity, latter for object equality
 * **Falsey values**:
   * `None`
   * `False`
@@ -493,6 +496,45 @@ Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/progr
   * Empty sequences & mappings
   * When `__nonzero__()` returns `False`
   * When `__len__()` returns zero for a user-defined class
+* People like the word "Pythonic"
+
+## Java Cheatsheet
+### Program structure
+```Java
+public class Program {
+  // main
+  public static void main(String[] args) {
+    Hello h = new Hello("hi");
+    System.out.println(h);
+  }
+}
+```
+```Java
+public class Hello {
+  private String text; // private instance variable
+  // constructor
+  public Hello(String helloText) {
+    text = helloText;
+  }
+  public String toString() {
+    return "Hello" + text;
+  }
+}
+```
+### Data Types
+* Primitive: `int`, `double`, `boolean`, `char`, `byte`, `short`, `long`, `float`
+* Also `Integer`, `Double`, `String` classes
+  * Note that `char` literals have single quotes and `String` literals have double quotes
+* Arrays: use `[]` after type name (fixed length, `length` variable)
+* Interfaces -> concrete classes: 
+  * `List` -> `ArrayList`, `LinkedList` (variable length, `size()` method, can't store primitives)
+  * `Set` -> `HashSet`, `LinkedHashSet`, `TreeSet`
+  * `Map` -> `HashMap`, `LinkedHashMap`, `TreeMap`
+* `Collection` parent interface of `Set`, `List`, `Queue`, `Deque`
+* Others: `File`, `Math`, `Scanner`, `StringTokenizer`
+* `Object` class at the top of the hierarchy
+
+Inspired by http://introcs.cs.princeton.edu/java/11cheatsheet/
 
 ## Problem-solving Strategies
 General categories of problems
