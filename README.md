@@ -359,6 +359,8 @@ Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/progr
 * **Balanced partition**: given a set of numbers, partition them so that the sums of the partitions are as close as possible
   * Greedy method: iterate through sorted list and add items to the smaller-sum partition
   * Dynamic programming: determine if a subset of the input sums to `n/2` (where `n` is the sum of the input numbers)
+* **LRU Cache**: implement a least-recently used cache
+  * Use two data structures: queue (implemented using doubly linked list) and hash table. Queue contains pages in access order & hash map maps pages to queue node
 
 ## Just Python Things
 ### Strings
@@ -489,5 +491,15 @@ General categories of problems
 * Tree traversal
 * Graph search
 * Dynamic programming
+
+Approaching coding interview questions
+* Be thorough and verbalize your thought process (esp if you're stuck!)
+* First, clarify the question and any assumptions you're making about input/output/behavior
+* Walk through potential solutions (if you can think of multiple with different runtime/space requirements, explain the tradeoffs and pick the one you'll implement)
+* Write out the function header & return value type
+* Implement the function body, explaining your code as you go & mentioning any invariants
+* When you're done, say so and walk through simple examples
+* Write out some test cases, esp edge cases
+* Talk about the runtime and space requirements of your solution
 
 See https://www.topcoder.com/community/data-science/data-science-tutorials/how-to-find-a-solution/
