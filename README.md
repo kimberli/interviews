@@ -238,7 +238,9 @@ Inspiration from [here](https://quizlet.com/22436874/oop-vocabulary-object-orien
 * *Polymorphism*: different classes in a program can respond to the same message in different ways; useful when an object's class can't be determined at compile time
 
 ### Concurrency
-* TODO
+* Starting with a single-threaded program, threads can spawn new threads
+* *Data races*: bugs in concurrent programs resulting from concurrent access to shared objects
+* Ways to prevent data races: protect objects with locks so that only one thread can access an object at once, or use a special hyperobject
 
 ### Design Patterns
 * *Model-view-controller*: model stores data, controller updates model, view generates user interface
@@ -278,8 +280,16 @@ Inspiration from [here](https://quizlet.com/22436874/oop-vocabulary-object-orien
 ### Recursion
 * [*Master theorem*](https://en.wikipedia.org/wiki/Master_theorem): is most work performed in the root node, in the leaves, or evenly distributed in the rows of the recursion tree?
 
-### Linux
-* TODO
+### Terminal Commands
+* Basic commands: `ls`, `cd`, `mkdir`,`touch`, `cp`, `mv`, `rm`, `pwd`, `chmod`, `chown`, `man`
+* `ping`: ping a server, used for network diagnostics
+* `ps`: display info about processes running on the system
+* `grep`: searches through files for lines matching a given regular expression
+* `tar`, `zip`, `unzip`: make and open compressed archives
+* `curl`: send requests to web servers
+* `wget`: download files from the web (can do recursively)
+* `dig`: query over DNS
+* `crontab`: use Cron to schedule recurring tasks
 
 ### Git
 * `init`: creates/initializes `.git` folder in current directory
