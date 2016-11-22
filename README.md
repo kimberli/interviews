@@ -271,6 +271,7 @@ Inspiration from [here](https://quizlet.com/22436874/oop-vocabulary-object-orien
 * 403 Forbidden: request understood but not fulfilled, authorization will not help
 * 404 Not Found: URI could not be matched
 * 408 Request Timeout: server did not receive a timely response from client
+* 418 I'm a teapot: the resulting entity body *may* be short and stout
 * 500 Internal Server Error: server exception
 * 503 Service Unavailable: server unable to handle the request (temporary)
 * 504 Gateway Timeout: server did not receive a timely response from upstream server
