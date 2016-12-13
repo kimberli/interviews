@@ -488,7 +488,7 @@ Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/progr
 * Tuples are immutable lists; strings are also immutable
 * `zip()`: combine multiple lists into single list of tuples
 * Four numeric types: `int`, `long`, `float`, `complex`
-* **Boolean operations**: `and`, `or`, `not`
+* **Logical operations**: `and`, `or`, `not`
 * `is` vs `==`: former for object identity, latter for object equality
 * **Falsey values**:
   * `None`
