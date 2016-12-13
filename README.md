@@ -310,6 +310,8 @@ Inspiration from [here](https://quizlet.com/22436874/oop-vocabulary-object-orien
 * `remote`: manage tracked remote repos
 * `reset`: reset current HEAD to a different state
 
+## Math
+
 ### Combinatorics
 * `n(n-1)/2`: number of handshakes in a group
 * `n-1`: number of rounds in a knockout tournament
@@ -422,6 +424,19 @@ Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/progr
 * `d.items()`: return a list of `(key,value)` tuples
 * `d.keys()`: return a list of dicionary keys
 * `d.values()`: return a list of dictionary values
+
+### Classes
+```Python
+class Node:
+  def __init__(self, val, parent):
+    self.val = val
+    self.parent = parent
+    self.children = []
+  def add_child(self, child):
+    self.children.append(child)
+    
+n = Node("root", None)
+```
 
 ### Non-Decimal Numbers
 * Binary numbers: preface with `0b`; use `bin(int)` to convert
