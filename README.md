@@ -316,8 +316,8 @@ Inspiration from [here](https://quizlet.com/22436874/oop-vocabulary-object-orien
 * `n(n-1)/2`: number of handshakes in a group
 * `n-1`: number of rounds in a knockout tournament
 * `2^k`: number of binary strings of length `k`
-* `n!/(n-r)!`: permutations of `n` items taken `k` at a time
-* `n!/(r!(n-r)!)`: combinations of `n` items taken `k` at a time
+* `n!/(n-k)!`: permutations of `n` items taken `k` at a time
+* `n!/(k!(n-k)!)`: combinations of `n` items taken `k` at a time
 
 ## Common Problems
 Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/programming-interview-questions/).
