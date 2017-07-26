@@ -604,7 +604,7 @@ Inspired by http://introcs.cs.princeton.edu/java/11cheatsheet/
 * Statically typed vs dynamically typed
 * See [Comparison of programming languages](https://en.wikipedia.org/wiki/Comparison_of_programming_languages)
 
-## A Tiny Bit of C
+### A Tiny Bit of C
 ```C
 #include <stdio.h>
 int main()
@@ -614,7 +614,7 @@ int main()
 }
 ```
 
-## A Tiny Bit of C++
+### A Tiny Bit of C++
 ```C++
 #include <iostream>
 using namespace std;
@@ -633,7 +633,7 @@ int main () {
 }
 ```
 
-## A Tiny Bit of Ruby
+### A Tiny Bit of Ruby
 ```Ruby
 class HelloWorld
    def initialize(name)
@@ -648,7 +648,7 @@ h = HelloWorld.new("World")
 h.hello
 ```
 
-## A Tiny Bit of Go
+### A Tiny Bit of Go
 ```Go
 package main
 import "fmt"
