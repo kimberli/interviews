@@ -1,10 +1,6 @@
 # interview study sheet
 A quick study sheet I use as a refresher :smile:
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
-
 - [Data Structures](#data-structures)
 - [Algorithms](#algorithms)
 - [Other Concepts](#other-concepts)
@@ -12,9 +8,8 @@ A quick study sheet I use as a refresher :smile:
 - [Common Problems](#common-problems)
 - [Just Python Things](#just-python-things)
 - [Java Cheatsheet](#java-cheatsheet)
+- [Programming Languages](#programming-languages)
 - [Problem-solving Strategies](#problem-solving-strategies)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Data Structures
 ### Array
@@ -38,10 +33,12 @@ A quick study sheet I use as a refresher :smile:
   * Delete: `O(1)`
 
 ### Stacks & Queues
-* *Stack*: last in, first out (LIFO)
-* *Queue*: first in, first out (FIFO)
-* *Double-ended queue*: stack + queue combined
-* Principal operations: `push` adds elements & `pop` extracts elements
+* **Stack**: last in, first out (LIFO)
+  * Adding an element and popping the most recently added element are `O(1)` operations
+* **Queue**: first in, first out (FIFO)
+  * Adding an element and popping the oldest element are `O(1)` operations
+* **Double-ended queue**: stack + queue combined
+* `push` adds elements & `pop` extracts elements
 
 ### Trees
 * A *tree* is an undirected, connected, acyclic graph
@@ -51,8 +48,8 @@ A quick study sheet I use as a refresher :smile:
   * One node is designated as the **root**
   * Each node has parent and/or children pointers
   * A node's height is the length of its path to the root
-* A *forest* has multiple distinct trees (a disjoint union)
-* An *n-ary tree* has at most `n` children per node
+* A **forest** has multiple distinct trees (a disjoint union)
+* An **n-ary tree** has at most `n` children per node
 
 #### Binary Tree
 * A *binary tree* has nodes with at most 2 children (designated left & right)
@@ -72,35 +69,42 @@ A quick study sheet I use as a refresher :smile:
 * A *binary search tree* is an ordered binary tree
 * Satisfies the BST property: each node's value is greater than all keys stored in the left subtree and less than all keys stored in the right subtree
 * Designed to make searching faster--each comparison allows operations to skip about half the tree
-* **Search**: recursively search subtrees; takes `O(h)`
-* **Insertion**: like search, but insert node when a leaf is reached; takes `O(h)`
-* **Deletion**: more complicated; takes `O(h)`
+* Search: recursively search subtrees; takes `O(h)`
+* Insertion: like search, but insert node when a leaf is reached; takes `O(h)`
+* Deletion: more complicated; takes `O(h)`
   * If deleting a node with no children, just do it
   * If deleting a node with a single child, replace the node with its subtree
   * If deleting a node with two children, swap with minimum value in right subtree or maximum value in left subtree, then delete the node (which should now be a leaf)
 
 #### AVL Tree
-* Self-balancing binary search tree
-* Lookup, insertion, and deletion all take `O(log n)`
+* An *AVL tree* is a self-balancing binary search tree
+* Pairs of subtrees differ in height by at most 1
+* Lookup, insertion, and deletion all take `O(log n)`, since height is at most `O(log n)`
+* Rotation balances the tree on update
+* Implement by adding a **balance factor** on each node (difference between subtree heights)
 
 #### Trie
-* Also called a *prefix tree*
-* Stores subsequences of values; useful for autocomplete
+* A *trie* is a special tree that stores subsequences of values, also known as a prefix tree
+* Each node's descendants share a common prefix given by the node
+* Useful for autocomplete
 
-### Hash Table
-* **Hash function**: a function mapping an object to an integer such that if `a==b`, `H(a)==H(b)`
+### Hashing
+* A *hash function* is a function mapping an object to an integer such that if `a==b`, `H(a)==H(b)`
+* **Universal hashing**: a randomized way of drawing a hash function from some set of functions so that performance is good in expectation
+* **Perfect hashing**: has no collisions; usually only practical when the set of keys is roughly constant
+
+#### Hash Tables
 * A *hash table* is an array whose indices correspond to results from a hash function (implemented as a dictionary in Python)
 * Provides `O(1)` lookup, assuming load factor is small enough
-* Load factor - `n/k`, where `n` is number of entries and `k` is number of buckets
+* **Load factor**: `n/k`, where `n` is number of entries and `k` is number of buckets
 * Collision resolution
   * Chaining (e.g. with linked lists)
   * Open addressing (e.g. with linear probing, quadratic probing, or double hashing)
-* Table doubling - choose a new hash function to map to the new size and insert elements from old table into new table
-* Simple uniform hashing assumption (SUHA) - a hash function maps to any slot with equal probability
-* Universal hashing, perfect hashing
+* **Table doubling**: choose a new hash function to map to the new size and insert elements from old table into new table
+* **Simple uniform hashing assumption (SUHA)**: a hash function maps to any slot with equal probability
 
 ### Heap
-* Special tree where nodes have higher (in the case of a min-heap) values than their parents
+* A *heap* is a special tree where nodes have higher (in the case of a min-heap) values than their parents
 * Binary heap:
   * Heapify in `O(n)`
   * Find min in `O(1)`
@@ -108,15 +112,21 @@ A quick study sheet I use as a refresher :smile:
   * Can implement as a list where a node at index `i` has children at `2i+1` and `2i+2`
 
 ### Graph
-* Collection of nodes and edges
-* Cycle - path that loops onto itself
-* Topological sort - in DAG, linear ordering of vertices such that directional constraints are preserved (generate using DFS, prepend to output list)
+* A *graph* is a collection of nodes and edges and can be directed or undirected
+* **Cycle**: path that loops onto itself
+* **Topological sort**: linear ordering of vertices such that directional constraints are preserved in a directed acyclic graph (DAG)
+  * Generate using DFS by prepending to output list
 * **Spanning tree**: a tree that includes all nodes in the graph
-  * **Minimum spanning tree**: a spanning tree with minimum total edge weights
+  * Minimum spanning tree: a spanning tree with minimum total edge weights
+* **Complete graph**: fully connected; every pair of nodes has an edge
+* **Bipartite graph**: split into two groups A and B where there are no edges within each groups
+* **Clique**: a complete subgraph
+
 
 ## Algorithms
 ### Binary Search
 * Given a sorted list, start at the midpoint and divide and conquer
+* **Exponential search** is like binary search but in one direction (e.g. can be used in infinite sequence)
 * `O(log n)`
 
 ### Sorting
@@ -141,14 +151,14 @@ A quick study sheet I use as a refresher :smile:
 * Best-case `O(n log n)`, average `O(n log n)`, worst `O(n log n)`
 
 #### Quick
-* Set a pivot in the array; move elements smaller than pivot to its left and elements larger to the right
+* Set some pivot element in the array; move elements smaller than pivot to its left and elements larger to the right
   * Recursively sort left and right sublists
 * Requires `O(log n)` space; stable
 * Best-case `O(n log n)`, average `O(n log n)`, worst `O(n^2)`
 
 #### Counting/Bucket
-* For lists whose elements' values are in a set range
-* Not a comparison sort so best & average is `O(n+k)` and worst is `O(n^2)`
+* For lists whose elements' values are in a bounded, constant range
+* Not a comparison sort so best & average is `O(n+k)` and worst is `O(n^2)` (not bounded to `O(n log n)`)
 * Iterate through list and place items in buckets; can be stable
 
 #### Radix
@@ -166,6 +176,7 @@ A quick study sheet I use as a refresher :smile:
 
 #### Depth-first
 * Implement with a stack (add new paths to the front of the agenda)
+* Can use for cycle detection
 
 #### Breadth-first
 * Implement with a queue (add new paths to the end of the agenda)
@@ -193,10 +204,6 @@ A quick study sheet I use as a refresher :smile:
 * Can't handle negative edge weights
 * Using a Fibonacci heap, runtime is `O(|E|+|V|log|V|)`
 
-#### Prim's
-* Generate a minimum spanning tree of a graph
-* Using a heap, runtime is `O(|E|+|V|log|V|)`
-
 #### Bellman-Ford
 * Compute shortest paths from a single source to all other nodes in the graph
 * Can handle negative edge weights & detect negative-weight cycles
@@ -206,6 +213,32 @@ A quick study sheet I use as a refresher :smile:
 * Dynamic programming all-pairs shortest paths algorithm
 * `dp(i,j,k+1)=min(dp(i,j,k),dp(i,k+1,k)+dp(k+1,j,k))`
 
+### Other Graph Algorithms
+#### Min Cut & Max Flow
+* The *min cut* problem asks for the minimum number of edges you can remove from a graph to disconnect a given source and sink
+* The *max flow* problem asks for the maximum flow from a given source to sink
+* **Karger's** randomized min-cut algorithm
+* **Ford-Fulkerson** computes max flow
+* Example of linear duality
+
+#### Minimum Spanning Tree
+* **Prim's** adds the smallest-weight connected edge that doesn't create a cycle
+  * `O(|E|+|V|log|V|)` so use in dense graphs
+* **Kruskal's** adds the globally smallest edge and keeps a forest (
+  * `O(|E|log|V|)`
+
+### Greedy Algorithms
+* Locally optimal choices lead to globally optimal solution
+* Be careful--this is usually rare!
+* Prim's, Kruskal's, interval scheduling, Huffman codes, Dijkstra's
+
+### Dynamic Programming
+* A general method for solving a problem with optimal substructure by breaking it down into overlapping subproblems
+* **Top-down**: memoize (store) solutions to subproblems and solve problem recursively
+* **Bottom-up**: build up subproblems from base case up and avoid recursive overhead
+  * Order subproblems by topologically sorting DAG of dependencies
+* Knapsack problem, longest common subsequence, coin change, edit distance, minimum number of jumps, longest palindrome substring, balanced partition
+
 ## Other Concepts
 ### General
 * Static/dynamic checking
@@ -213,7 +246,6 @@ A quick study sheet I use as a refresher :smile:
 * Compiled/interpreted
 * Shallow/deep copying
 * Immutable/mutable
-* Greedy algorithms
 * Defensive copying
 * Pseudo-polynomial runtime
 
@@ -229,7 +261,7 @@ A quick study sheet I use as a refresher :smile:
 
 ### Object-oriented Programming
 Inspiration from [here](https://quizlet.com/22436874/oop-vocabulary-object-oriented-programming-flash-cards/)
-* *Abstract data type*: access data only through a public interface; implementation can be changed without altering usage
+* *Abstract data type*: defined logically by set of values and set of operations
 * *Class*: basic concept in OOP, bundles data type information with actions
 * *Object*: runtime value which belongs to a class
 * *Encapsulation*: information hiding to ensure data integrity
@@ -237,6 +269,8 @@ Inspiration from [here](https://quizlet.com/22436874/oop-vocabulary-object-orien
 * *Inheritance*: a subclass inherits data and methods from its parent classes
 * *Overriding*: a subclass inherits parent methods but may override them
 * *Polymorphism*: different classes in a program can respond to the same message in different ways; useful when an object's class can't be determined at compile time
+* *Identity*: checks whether two objects are the same location in memory
+* *Equality*: checks whether two objects are behaviorally equivalent
 
 ### Concurrency
 * Starting with a single-threaded program, threads can spawn new threads
@@ -249,13 +283,6 @@ Inspiration from [here](https://quizlet.com/22436874/oop-vocabulary-object-orien
 * *Singleton*: restrict instantiation of a class to a single object
 * *Observer*: subjects notify observers of any state changes (usually by calling their methods); used in MVC
 * Lots more
-
-### Dynamic Programming
-* A general method for solving a problem with optimal substructure by breaking it down into overlapping subproblems
-* **Top-down**: memoize (store) solutions to subproblems and solve problem recursively
-* **Bottom-up**: build up subproblems from base case up and avoid recursive overhead
-  * Order subproblems by topologically sorting DAG of dependencies
-* Knapsack problem, longest common subsequence, coin change, edit distance, minimum number of jumps, longest palindrome substring, balanced partition
 
 ### The Internet
 #### HTTP Methods
@@ -301,14 +328,15 @@ Inspiration from [here](https://quizlet.com/22436874/oop-vocabulary-object-orien
 * `add`: add files to index of contents for next commit
 * `rm`: remove files from working tree and index
 * `commit`: record changes to the repo, along with a commit message
-* `rebase`: transplant changes on one branch to another
+* `rebase`: transplant changes on one branch to another, edit commit history
 * `branch`: list, create, or delete branches
-* `checkout`: switch branches
+* `checkout`: switch branches (or just get a version of specific files)
 * `status`: show the working tree's status
 * `diff`: show changes between commits or the working tree
 * `log`: show commit logs in a repo
 * `remote`: manage tracked remote repos
-* `reset`: reset current HEAD to a different state
+* `reset`: reset current HEAD to a different state (can do `--hard` or `--soft`)
+* Also cool things like `bisect`, `fixup`
 
 ## Math
 
@@ -318,6 +346,9 @@ Inspiration from [here](https://quizlet.com/22436874/oop-vocabulary-object-orien
 * `2^k`: number of binary strings of length `k`
 * `n!/(n-k)!`: permutations of `n` items taken `k` at a time
 * `n!/(k!(n-k)!)`: combinations of `n` items taken `k` at a time
+
+### Probability
+* **Bayes' theorem**: `P(A|B) = P(B|A)P(A)/P(B)`
 
 ## Common Problems
 Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/programming-interview-questions/).
@@ -424,28 +455,37 @@ Lots of these taken from [this blog](http://www.ardendertat.com/2012/01/09/progr
 * `d.items()`: return a list of `(key,value)` tuples
 * `d.keys()`: return a list of dicionary keys
 * `d.values()`: return a list of dictionary values
+* `{<key>: <val> for <var> in <list> if <condition>}`: list comprehension
+
+### Error Handling
+* Common Python way to indicate error is to `raise Exception` (or a subclass of `Exception`)
+* Catch these with `try/except` blocks
 
 ### Classes
 ```Python
-class Node:
+class Node(ParentClass):
   def __init__(self, val, parent):
     self.val = val
     self.parent = parent
     self.children = []
   def add_child(self, child):
     self.children.append(child)
-    
+
 n = Node("root", None)
 ```
+* Read about [Python metaclasses](https://jakevdp.github.io/blog/2012/12/01/a-primer-on-python-metaclasses/)
+* Inherit from `object` to use new-style classes
+* Note that Python supports multiple inheritance
+  * Be cautious of method resolution order (`__mro__`)
 
 ### Non-Decimal Numbers
 * Binary numbers: preface with `0b`; use `bin(int)` to convert
   * Left and right shift: `<<` and `>>`
   * Bitwise AND, OR, XOR, NOT: `&`, `|`, `^`, `~`
-  * [Bitmasks](https://en.wikipedia.org/wiki/Mask_(computing))
+  * [Bitmasks](https://en.wikipedia.org/wiki/Mask_(computing)
 
 ### File I/O
-* `f = open('filename', 'w')`: open a file
+* `f = open('filename', <mode>)`: open a file
 * `f.close()`: close file
 * `f.readline()`: read a line from the file
 * `for line in f`: iterate through lines in file
@@ -466,9 +506,13 @@ n = Node("root", None)
   * Also `ne`, `lt`, `le`, `gt`, `ge`
 * `__str__(self)`: return string representation
 * `__repr__(self)`: return machine-readable representation
+* `__format__(self, formatstr)`: return new-style formatted string
 * `__hash__(self)`: return an integer such that `a==b` implies `hash(a)==hash(b)`
+* `__getitem__(self, key)`: defines what happens when you access `self[key]`
+* `__getattr__(self, key)`: defines what happens when you access `self.key`
+* `__contains__(self, item)`: defines behavior when using `in`/`not in` for membership checking
 
-### Useful Modules
+### Useful Packages
 * `copy`
   * `copy.copy(x)`: return shallow copy of `x`
   * `copy.deepcopy(x)`: return deep copy of `x`
@@ -485,8 +529,9 @@ n = Node("root", None)
 * `nltk`
 * `requests`
 * `unirest`
+* `networkx`
 * `pdb`
-  * `pdb.set_trace()` sets a breakpoint at the current line and gives the user a CLI with which to inspect various objects and their values at runtime. Also allows you to continue code execution line by line. Use `help` to see a list of the commands usable in the CLI.
+  * `pdb.set_trace()` sets a breakpoint at the current line and gives the user a CLI with which to inspect various objects and their values at runtime. Also allows you to continue code execution line by line.
 * `pprint`: Pretty Print
   * `pprint.pprint(iter)`: Print out a version of `iter` with JSON-like formatting. Useful for inspecting large, deeply nested objects.
 
@@ -542,7 +587,7 @@ public class Hello {
 * Also `Integer`, `Double`, `String` classes
   * Note that `char` literals have single quotes and `String` literals have double quotes
 * Arrays: use `[]` after type name (fixed length, `length` variable)
-* Interfaces -> concrete classes: 
+* Interfaces -> concrete classes:
   * `List` -> `ArrayList`, `LinkedList` (variable length, `size()` method, can't store primitives)
   * `Set` -> `HashSet`, `LinkedHashSet`, `TreeSet`
   * `Map` -> `HashMap`, `LinkedHashMap`, `TreeMap`
@@ -551,6 +596,77 @@ public class Hello {
 * `Object` class at the top of the hierarchy
 
 Inspired by http://introcs.cs.princeton.edu/java/11cheatsheet/
+
+## Programming Languages
+* Low level vs high level
+* Compiled vs interpreted
+* Imperative vs declarative (and functional)
+* Statically typed vs dynamically typed
+* See [Comparison of programming languages](https://en.wikipedia.org/wiki/Comparison_of_programming_languages)
+
+## A Tiny Bit of C
+```C
+#include <stdio.h>
+int main()
+{
+   printf("Hello, World!");
+   return 0;
+}
+```
+
+## A Tiny Bit of C++
+```C++
+#include <iostream>
+using namespace std;
+
+class Hello {
+    std::string name;
+  public:
+    Hello (std::string newName) { name = newName; }
+    std::string hello () { return "Hello " + name; }
+};
+
+int main () {
+  Hello h ("world");
+  cout << h.hello();
+  return 0;
+}
+```
+
+## A Tiny Bit of Ruby
+```Ruby
+class HelloWorld
+   def initialize(name)
+      @name = name
+   end
+   def hello
+      puts "Hello #{@name}!"
+   end
+end
+
+h = HelloWorld.new("World")
+h.hello
+```
+
+## A Tiny Bit of Go
+```Go
+package main
+import "fmt"
+
+type hello struct {
+    name string
+}
+func (h hello) hello() string {
+    return "hello " + h.name
+}
+
+func main() {
+    h := hello{name: "world"}
+    fmt.Println(h.hello())
+}
+```
+* Go has built-in support for parallel programming with goroutines and channels
+
 
 ## Problem-solving Strategies
 General categories of problems
@@ -561,7 +677,7 @@ General categories of problems
 * Dynamic programming
 
 Approaching coding interview questions
-* Be thorough and verbalize your thought process (esp if you're stuck!)
+* Be thorough and verbalize your thought process (esp. if you're stuck!)
 * First, clarify the question and any assumptions you're making about input/output/behavior
 * Walk through potential solutions (if you can think of multiple with different runtime/space requirements, explain the tradeoffs and pick the one you'll implement)
 * Write out the function header & return value type
