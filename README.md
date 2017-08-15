@@ -666,6 +666,7 @@ func main() {
 }
 ```
 * Go has built-in support for parallel programming with goroutines and channels
+* [How Goroutines Work](http://blog.nindalf.com/how-goroutines-work/)
 
 
 ## Problem-solving Strategies
