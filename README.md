@@ -109,7 +109,7 @@ A quick study sheet I use as a refresher :smile:
   * Heapify in `O(n)`
   * Find min in `O(1)`
   * Extract min, increase key, insert, delete in `O(log n)`
-  * Can implement as a list where a node at index `i` has children at `2i+1` and `2i+2`
+  * Can implement as a list where a node at index `i` has children at `2i+1` and `2i+2` (0-indexed)
 
 ### Graph
 * A *graph* is a collection of nodes and edges and can be directed or undirected
