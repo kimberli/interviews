@@ -11,7 +11,7 @@ A quick study sheet I use as a refresher :smile:
 - [Programming Languages](#programming-languages)
 - [Problem-solving Strategies](#problem-solving-strategies)
 
-Also, there's much more to computer science than these simple topics! There are a multitude of online resources for broadening and deepening your core CS knowledge, https://teachyourselfcs.com/ is one such site.
+Also, there's much more to computer science than these simple topics! There are a multitude of online resources for broadening and deepening your core CS knowledge; https://teachyourselfcs.com/ is one such site.
 
 ## Data Structures
 ### Array
