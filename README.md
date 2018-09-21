@@ -690,3 +690,9 @@ Approaching coding interview questions
 * Talk about the runtime and space requirements of your solution
 
 See https://www.topcoder.com/community/data-science/data-science-tutorials/how-to-find-a-solution/
+
+## Final Thoughts
+Interviews can seem scary, but don't let them stress you out.
+Honestly, they can be really insightful experiences--I've learned so much on those occasions when interviewers take the time to have a conversation (about code or their work).
+Just be prepared and confident, and remember that good interviews try to assess your ability to learn and work with a team, not just your knowledge.
+And, if you get to the stage where you're looking at job offers (congrats!), check out [my other guide for things to consider when evaluating a role at a startup](https://github.com/kimberli/new-grad-offers)!
