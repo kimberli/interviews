@@ -1,3 +1,4 @@
+// To find path from src to other vertices having min. sum of weights.
 // Used for negative weights.
 vector<int> BellmanFord(int V,int src,vector<vector<int>>edges){   // {src,dest,weight}
       vector<int> dist(V,INT_MAX); // initialize to INT_MAX
