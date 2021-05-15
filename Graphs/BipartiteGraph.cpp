@@ -1,6 +1,7 @@
 // to check if graph is bipartite
 // also, check for self loops. graphs will not be bipartite in that case
 // this algo uses bfs to check for bipartition
+// A bipartite graph can never have a cycle of odd length.
 bool Bipartite(){
   queue<int>q;
   vector<int>color(V,-1);
