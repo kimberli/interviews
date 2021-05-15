@@ -16,7 +16,7 @@ int checkcycle(){
   for(int i = 0; i<edges.size(); i++){
     int x = edges[i][0];
     int y = edges[i][1];
-    if(parent[x] == parent[y])
+    if(find(parent,x) == find(parent,y))
       return 1;
     Union(x,y);
   }
@@ -46,7 +46,14 @@ int Union(){
     size[x] += size[y];
   }
 }
-
+void formDSU(){
+  for(int i = 0;i < edges.size();i++){
+    int x = edges[i][0];
+    int y = edges[i][1];
+    if(find(parent,x) != find(parent,y))
+      Union(x,y);
+  }
+}
 
 
 
