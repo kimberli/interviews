@@ -1,3 +1,4 @@
+//change weight to -w for shortest path 
 //Method 1 - simple DFS O(V*(V+E))
 void LongestPath(int u, int sum, vector<bool>&visited, vector<int>arr[], int &ans){
   visited[src] = true;
