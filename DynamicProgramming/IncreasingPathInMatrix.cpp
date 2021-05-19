@@ -10,9 +10,8 @@ If there doesn't exist a path return -1.*/
 int Solution::solve(vector<vector<int> > &A) {
     int n=A.size();
     int m=A[0].size();
-    if(n==1 && m==1) return 1;
     vector<vector<int>>dp(n,vector<int>(m,0));
-    int ans=1;
+    int ans=-1;
     dp[0][0]=1;
     for(int i=0;i<n;i++)
     {
@@ -23,27 +22,26 @@ int Solution::solve(vector<vector<int> > &A) {
             {
                 if(i==0)
                 {
-                    if(A[i][j]>A[i][j-1])
+                    if(A[i][j]>A[i][j-1] && dp[i][j-1]!=0)
                         dp[i][j]=1+dp[i][j-1];
                 }
                 else
                 {
-                    if(A[i][j]>A[i-1][j])
+                    if(A[i][j]>A[i-1][j] && dp[i-1][j]!=0)
                         dp[i][j]=1+dp[i-1][j];
                 }
             }
             else
             {
-                if(A[i][j]>A[i-1][j])
+                if(A[i][j]>A[i-1][j] && dp[i-1][j]!=0)
                     dp[i][j]=max(dp[i][j],1+dp[i-1][j]);
-                if(A[i][j]>A[i][j-1])
+                if(A[i][j]>A[i][j-1] && dp[i][j-1]!=0)
                 {
                     dp[i][j]=max(dp[i][j],1+dp[i][j-1]);
                 }
             }
-            ans=max(ans,dp[i][j]);
         }
     }
-    if(ans==1) return -1;
-    return ans;
+    if(dp[n-1][m-1]==0) return -1;
+    return dp[n-1][m-1];
 }
