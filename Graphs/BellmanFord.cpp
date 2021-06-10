@@ -13,9 +13,9 @@ vector<int> BellmanFord(int V,int src,vector<vector<int>>edges){   // {src,dest,
         }
     }
   for(int i=0; i < E; i++){
-    int u=edges[i][0];
-    int v=edges[i][1];
-    int w=edges[i][2];
+    int u=edges[j][0];
+    int v=edges[j][1];
+    int w=edges[j][2];
     if(dist[u] != INT_MAX && dist[u] + w <dist[v]){
       return {};                                            // there is a negative cycle
     }
